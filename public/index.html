@@ -1,33 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Geolocation App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geolocation App</title>
 </head>
-<body onload="getLocation()">
-    <h1>Geolocation App</h1>
+<body>
+  <h1>Geolocation App</h1>
 
- <!-- Firebase SDK (versi sebelumnya) -->
-<script src="path/to/firebase-app.js"></script>
-<script src="path/to/firebase-database.js"></script>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js"></script>
 
-    <!-- Konfigurasi Firebase -->
-    <script>
-      var firebaseConfig = {
-        apiKey: "AIzaSyAB6mV2XIrqqqWweg1PO1wP1ZQrOo2y4_g",
-        authDomain: "lokasi-3a03e.firebaseapp.com",
-        databaseURL: "https://lokasi-3a03e-default-rtdb.firebaseio.com",
-        projectId: "lokasi-3a03e",
-        storageBucket: "lokasi-3a03e.appspot.com",
-        messagingSenderId: "447129590384",
-        appId: "1:447129590384:web:3df42acc8154acfa2532b5",
-        measurementId: "G-LTXN27JFN5",
-      };
-      firebase.initializeApp(firebaseConfig);
-    </script>
+  <!-- Your web app's Firebase configuration -->
+  <script>
+    import { initializeApp } from 'firebase/app';
+    import { getDatabase } from 'firebase/database';
 
-    <!-- JavaScript untuk mengelola data -->
-    <script src="app.js"></script>
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_AUTH_DOMAIN",
+      databaseURL: "YOUR_DATABASE_URL",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_STORAGE_BUCKET",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID",
+      measurementId: "YOUR_MEASUREMENT_ID"
+    };
+    
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+  </script>
+
+  <!-- JavaScript untuk mengelola data -->
+  <script src="app.js"></script>
 </body>
 </html>
