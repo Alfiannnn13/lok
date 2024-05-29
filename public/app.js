@@ -30,3 +30,6 @@ function saveLocation(position) {
             console.error("Error saat menyimpan lokasi: ", error);
         });
 }
+
+// Panggil fungsi getLocation() saat halaman dimuat
+getLocation();

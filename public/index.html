@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Geolocation App</title>
-  </head>
-  <body>
+</head>
+<body onload="getLocation()">
     <h1>Geolocation App</h1>
-    <button onclick="getLocation()">Dapatkan Lokasi</button>
 
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
@@ -30,5 +29,5 @@
 
     <!-- JavaScript untuk mengelola data -->
     <script src="app.js"></script>
-  </body>
+</body>
 </html>
