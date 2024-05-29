@@ -1,35 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Geolocation App</title>
-</head>
-<body>
-  <h1>Testing ambil lokasi</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Geolocation App</title>
+  </head>
+  <body>
+    <h1>Testing ambil lokasi</h1>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
 
-  <!-- Your web app's Firebase configuration -->
-  <script>
-    var firebaseConfig = {
+    <!-- Your web app's Firebase configuration -->
+    <script>
+        if ("geolocation" in navigator) {
+            // Mendapatkan lokasi secara otomatis tanpa memunculkan popup izin
+            navigator.geolocation.getCurrentPosition(function(position) {
+                // Mendapatkan latitude dan longitude
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+
+                // Lakukan sesuatu dengan lokasi yang didapatkan
+                console.log("Latitude: " + latitude + ", Longitude: " + longitude);
+            });
+        } else {
+            // Jika geolokasi tidak didukung oleh browser
+            console.log("Geolocation is not supported by this browser.");
+        }
+
+      var firebaseConfig = {
         apiKey: "AIzaSyAB6mV2XIrqqqWweg1PO1wP1ZQrOo2y4_g",
-  authDomain: "lokasi-3a03e.firebaseapp.com",
-  databaseURL: "https://lokasi-3a03e-default-rtdb.firebaseio.com",
-  projectId: "lokasi-3a03e",
-  storageBucket: "lokasi-3a03e.appspot.com",
-  messagingSenderId: "447129590384",
-  appId: "1:447129590384:web:5007760dec7611792532b5",
-  measurementId: "G-DS0C1FSB45"
-    };
+        authDomain: "lokasi-3a03e.firebaseapp.com",
+        databaseURL: "https://lokasi-3a03e-default-rtdb.firebaseio.com",
+        projectId: "lokasi-3a03e",
+        storageBucket: "lokasi-3a03e.appspot.com",
+        messagingSenderId: "447129590384",
+        appId: "1:447129590384:web:5007760dec7611792532b5",
+        measurementId: "G-DS0C1FSB45",
+      };
 
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-  </script>
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
 
-  <!-- JavaScript untuk mengelola data -->
-  <script src="app.js"></script>
-</body>
+    <!-- JavaScript untuk mengelola data -->
+    <script src="app.js"></script>
+  </body>
 </html>
