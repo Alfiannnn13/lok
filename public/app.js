@@ -15,18 +15,6 @@ function showPosition(position) {
     var lon = position.coords.longitude;
     document.getElementById("location").innerHTML = "Latitude: " + lat + 
     "<br>Longitude: " + lon;
-
-    // Optionally send this data to your server
-    fetch('https://your-heroku-app.herokuapp.com/location', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            latitude: lat,
-            longitude: lon
-        })
-    });
 }
 
 function showError(error) {
